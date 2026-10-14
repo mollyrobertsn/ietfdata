@@ -51,6 +51,8 @@ typecheck:
 # =============================================================================
 # Rules to fetch an archive of raw data from the IETF.
 
+fetch: $(ARCHIVE) $(DATA)
+
 archive:
 	mkdir $@
 
@@ -72,9 +74,9 @@ archive/w3c-ma.sqlite: | archive
 data:
 	mkdir $@
 
-data/participants.json: ietfdata/tools/participants.py \
+data/participants.json: ietfdata/tools/participants_ietf.py \
                         archive/ietf-dt.sqlite archive/ietf-ma.sqlite | data
-	python3 -m ietfdata.tools.participants  archive/ietf-dt.sqlite archive/ietf-ma.sqlite $@
+	python3 -m ietfdata.tools.participants_ietf  archive/ietf-dt.sqlite archive/ietf-ma.sqlite $@
 
 data/organisations.json: ietfdata/tools/organisations.py \
                          archive/ietf-dt.sqlite archive/rfc-index.xml | data
@@ -92,7 +94,6 @@ data/affiliations.json: ietfdata/tools/affiliations.py \
 
 clean:
 	rm -f $(DATA)
-	rm -f data/affiliations2.json
 
 deep-clean: clean
 	rm -f $(ARCHIVE)
@@ -100,7 +101,7 @@ deep-clean: clean
 # =================================================================================================
 # Targets that don't represent files:
 
-.PHONY: test test-archive typecheck clean deep-clean
+.PHONY: test fetch test-archive typecheck clean deep-clean
 
 # =================================================================================================
 # Configuration for make:
