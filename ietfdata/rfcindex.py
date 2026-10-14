@@ -482,19 +482,19 @@ class RFCIndex:
 
     def _retrieve_index(self, cache_dir: str | None, rfc_index: str | None) -> str:
         if rfc_index is not None:
-            with open(rfc_index, "r") as xml_file:
+            with open(rfc_index, "r", encoding="utf-8") as xml_file:
                 return xml_file.read()
 
         cache_dir = os.getenv("IETFDATA_CACHEDIR", default=cache_dir)
         if cache_dir is not None:
             cache_filepath = Path(cache_dir, "rfc-index.xml")
             if self._is_cached(cache_filepath):
-                with open(cache_filepath, "r") as cache_file:
+                with open(cache_filepath, "r", encoding="utf-8") as cache_file:
                     return cache_file.read()
             else:
                 cache_filepath.parent.mkdir(parents=True, exist_ok=True)
                 response = self._download_index()
-                with open(cache_filepath, "w") as cache_file:
+                with open(cache_filepath, "w", encoding="utf-8") as cache_file:
                     cache_file.write(response)
                 return response
         else:
