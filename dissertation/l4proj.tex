@@ -22,7 +22,30 @@
 \maketitle
 
 \begin{highlight}
-\textbf{Research plan:} Compare RFC publication trends across topics and publication statuses, and examine whether references to earlier RFCs relate to changes in document length, status, or team size. Assess whether geographic patterns reflect changes in identifiable author affiliations or gaps in metadata. To address the third research question, compare the distribution of RFCs across indexed topics and working groups over time to assess whether publication has become more concentrated. Check the findings against source documents and note limitations in the available metadata.
+\begin{enumerate}
+    \item \textbf{To what extent are long-term changes in RFC publication volume, document length, and listed author-team size associated with changes in topic and publication-status mix, and with references to earlier RFCs?}
+    \begin{itemize}
+        \item Compare annual publication volume, document length, and team size across RFC topics and publication statuses.
+        \item Use the RFC Editor's abbreviation list to examine changes in abbreviations used in RFC texts.
+        \item Extract references from RFC reference lists and compare them with document length, status, and team size. Keep these references separate from the index's ``updates'' and ``obsoletes'' links.
+    \end{itemize}
+
+    \item \textbf{What accounts for changes in the recorded geographic representation of RFC authors: changes in identifiable author affiliations, differences in metadata coverage, or both?}
+    \begin{itemize}
+        \item Check which project sources contain country information and whether the records can be linked reliably to RFC authors.
+        \item Compare recorded countries over time and report how many author records have missing or uncertain country information.
+        \item Describe gaps and confusing parts of countries rather than writing it off
+    \end{itemize}
+
+    \item \textbf{Has RFC work become more concentrated in particular topics or working groups over time?}
+    \begin{itemize}
+        \item Compare the distribution of RFCs across indexed keywords and working groups in different periods.
+        \item Measure whether a smaller set of topics or working groups accounts for a larger share of RFCs over time.
+    \end{itemize}
+\end{enumerate}
+
+Check extracted references and author links against source records. Report missing or uncertain data, and treat any patterns as associations rather than proof of what caused the changes.
+
 \end{highlight}
 
 %==============================================================================
@@ -182,12 +205,6 @@ Of the 7,249 IETF-stream RFCs in the index, 2,241 (30.9\%) have at least one ent
 Comparing RFCs with a complete five-year reporting period, 28.6\% of RFCs published in 2001--2009 and 25.2\% published in 2010--2019 had at least one erratum in that period. This does not suggest a simple increase in reported corrections over time, though reporting practices and the types of RFCs published may differ between periods. Longer RFCs were somewhat more likely to have errata, while the number of listed authors showed little relationship to errata. These patterns do not establish that length causes errors or that team size affects quality.
 
 The working-group labels also suggest that RFCs have been associated with a wider range of groups over time: an average of about 36 distinct group labels appeared each year in the 1990s, compared with about 82 in the 2010s. This points to a broader spread of RFCs across the labels in the index, but does not show how many people participated or how specialised each group was. Indexed keywords vary by decade, with ``protocol'' and ``management'' common in the 1990s, ``SIP'' and ``IPv6'' in the 2010s, and ``security'', ``DNS'', and ``automation'' in 2020--2026. Keyword coverage is incomplete and varies between periods, so these examples should be treated as an indication of topics, not a complete account of how RFC subject matter changed.
-
-% \begin{highlight}
-% As a rough check for acronym use, the analysis counted distinct uppercase tokens in each RFC title and abstract. The average rose from 2.56 tokens per RFC in the 1990s to 3.18 in the 2000s, then fell slightly to 3.13 in the 2010s and 3.05 in 2020--2026. This suggests a modest increase from the 1990s, but the measure cannot tell acronyms from other uppercase terms and does not count their use in the full RFC text. It also does not check the RFC Editor's abbreviations list, so it should be read as an exploratory indicator rather than a count of approved abbreviations. \break
-
-% The index records ``updates'' and ``obsoletes'' relationships, but these are not general citation counts. Citation counts are not estimated in the current results because the analysis does not yet include extracted references from RFC text. Taken together, these indicators describe recorded corrections and metadata patterns; they cannot establish whether an RFC was more cared about, adopted, or successful.
-% \end{highlight}
 
 \section{Interpretation and limitations}
 The simultaneous increase in listed authors and decrease in page count is notable, but the time series cannot establish that one caused the other. One possible interpretation is that technical work has become more specialised and collaborative, with focused documents produced by larger groups; this remains a hypothesis, since this analysis does not measure document topics, team roles, or the relationship between author count and length within each year. Another possible influence is a change in the mix of RFCs: the series contains documents with different purposes and statuses, which may have different typical lengths and authorship patterns \cite{IETFProcessRFCs}. Page count is also a measure of document size, not technical complexity or quality, and can be affected by document formatting. Listed authors are a proxy for credited authorship rather than a complete measure of contribution. Further work could classify RFCs by type/topic and test whether the association between author count and length persists within those groups. The analysis describes publication trends; it cannot establish whether an RFC was deployed, adopted, or successful in practice.
