@@ -1,4 +1,4 @@
-% REMEMBER: You must not plagiarise anything in your report. Be extremely careful.
+﻿% REMEMBER: You must not plagiarise anything in your report. Be extremely careful.
 \documentclass{l4proj}
 
     
@@ -15,30 +15,22 @@
 
 %==============================================================================
 %% METADATA
-\title{Level 4 Project Report Template} % change this to your title
+\title{Characterising the IETF Through RFC Publication Trends}
 \author{Molly Robertson}
 \date{October 14, 2026}
 
 \maketitle
 
+\begin{highlight}
+\textbf{Research plan:} Compare RFC publication trends across topics and publication statuses, and examine whether references to earlier RFCs relate to changes in document length, status, or team size. Assess whether geographic patterns reflect changes in identifiable author affiliations or gaps in metadata. To address the third research question, compare the distribution of RFCs across indexed topics and working groups over time to assess whether publication has become more concentrated. Check the findings against source documents and note limitations in the available metadata.
+\end{highlight}
+
 %==============================================================================
 %% ABSTRACT
 \begin{abstract}
-    Every abstract follows a similar pattern. Motivate; set aims; describe work; explain results.
-    \vskip 0.5em
-    ``XYZ is bad. This project investigated ABC to determine if it was better. 
-    ABC used XXX and YYY to implement ZZZ. This is particularly interesting as XXX and YYY have
-    never been used together. It was found that  
-    ABC was 20\% better than XYZ, though it caused rabies in half of subjects.''
-    \begin{itemize}
-        \item papers outdated
-        \item ietf data outdated
-        \item investigate trends
-        \item something that was never done?
-        \item how will i do this/what will i use/what will i need to do
-    \end{itemize}
+    Request for Comments (RFCs) are technical documents that the Internet Engineering Task Force (IETF) publishes, documenting fundamental internet protocols, technologies, and standards \cite{IETFProcessRFCs}. As Internet technologies evolve, understanding RFCs and how they have changed over time is vital. Previous studies have examined RFC publication, authorship, deployment, and IETF mailing list activity \citep{McQuistin2021,Khare2022}. However, their analyses only cover data until 2020.
 
-    Statistics and graphs exist which investigate several themes around RFCs, including number of RFCs published per year, countries which they were created in, companies which submit them and more. These figures and the code to create them are five years out of date. This project updates these figures, finds some other interesting statistics that updates insights on the IETF data, and investigates trends between various subjects.
+    This project revisits these studies using an updated RFC index snapshot. It measures changes in publication volume, document length, and listed authorship for IETF-stream RFCs published between 1990 and 2026. The results show substantially higher publication activity than at the start of the period, a general reduction in typical RFC length, and an increase in the number of listed authors. The final year's values are treated as provisional because the snapshot may not contain the complete publication year.
 \end{abstract}
 
 %==============================================================================
@@ -111,410 +103,97 @@
 % You can use \todo{} to mark text that needs to be fixed. Anything inside will appear as highlighted 
 % text in the final copy, and you will also get warnings when you compile (so you don't
 % forget to take them out!)
+The IETF has developed many of the protocols and technical standards we see in the Internet today. This work is published in RFCs that document this as well as keeping a record of how Internet technologies have evolved. Changes in the number of RFCs published per year, their length, or the number of authors listed can reflect changes in the volume and organisation of this work. The countries recorded for each RFC can also be used to examine the composition of the community and investigate if there may be a link between that and some other interesting statistics. However, this needs to be carefully tracked, the country may not be relevant in some RFCs, and careful work needs to be done to define the concept.
 
-\todo{Remove the guidance notes from your dissertation before submitting!}
+This project builds on previous work by analysing RFC publication and authorship trends using more up-to-date data. Rather than only describing how these trends have changed, it asks what may help explain them, including changes in RFC topics and status, references to earlier RFCs, and the organisations associated with authors. It also examines whether apparent changes in geographic representation reflect author affiliations or differences in metadata coverage.
 
-Why should the reader care about what are you doing and what are you actually doing?
-\section{Guidance}
+The project addresses the following research questions:
 
-\textbf{Motivate} first, then state the general problem clearly. 
+\begin{enumerate}
+    \item To what extent are long-term changes in RFC publication volume, document length, and listed author-team size associated with changes in topic and publication-status mix, and with references to earlier RFCs?
+    \item What accounts for changes in the recorded geographic representation of RFC authors: changes in identifiable author affiliations, differences in metadata coverage, or both?
+    \item \begin{highlight}
+    Has RFC work become more concentrated in particular topics or working groups over time?
+    \end{highlight}
+\end{enumerate}
 
-\section{Writing guidance}
-\subsection{Who is the reader?}
+\begin{highlight}
+To answer the third question, the analysis will compare how RFCs are distributed across topics and working groups in different periods. It will use topic and working-group information recorded in the RFC index, looking at whether a smaller set accounts for a larger share of RFCs over time. Since keyword metadata is incomplete and may change in coverage, the results will be interpreted as evidence about the indexed records rather than a complete measure of RFC topics.
+\end{highlight}
 
-This is the key question for any writing. Your reader:
-
-\begin{itemize}
-    \item
-    is a trained computer scientist: \emph{don't explain basics}.
-    \item
-    has limited time: \emph{keep on topic}.
-    \item
-    has no idea why anyone would want to do this: \emph{motivate clearly}
-    \item
-    might not know \emph{anything} about your project in particular:
-    \emph{explain your project}.
-    \item
-    but might know precise details and check them: \emph{be precise and
-    strive for accuracy.}
-    \item
-    doesn't know or care about you: \emph{personal discussions are
-    irrelevant}.
-\end{itemize}
-
-Remember, you will be marked by your supervisor and one or more members
-of staff. You might also have your project read by a prize-awarding
-committee or possibly a future employer. Bear that in mind.
-
-\subsection{References and style guides}
-There are many style guides on good English writing. You don't need to
-read these, but they will improve how you write.
-
-\begin{itemize}
-    \item
-    \emph{How to write a great research paper} \cite{Pey17} (\textbf{recommended}, even though you aren't writing a research paper)
-    \item
-    \emph{How to Write with Style} \cite{Von80}. Short and easy to read. Available online.
-    \item
-    \emph{Style: The Basics of Clarity and Grace} \cite{Wil09} A very popular modern English style guide.
-    \item
-    \emph{Politics and the English Language} \cite{Orw68}  A famous essay on effective, clear writing in English.
-    \item
-    \emph{The Elements of Style} \cite{StrWhi07} Outdated, and American, but a classic.
-    \item
-    \emph{The Sense of Style} \cite{Pin15} Excellent, though quite in-depth.
-\end{itemize}
-
-\subsubsection{Citation styles}
-
-\begin{itemize}
-\item If you are referring to a reference as a noun, then cite it as: ``\citet{Orw68} discusses the role of language in political thought.''
-\item If you are referring implicitly to references, use: ``There are many good books on writing \citep{Orw68, Wil09, Pin15}.''
-\end{itemize}
-
-There is a complete guide on good citation practice by Peter Coxhead available here: \url{http://www.cs.bham.ac.uk/~pxc/refs/index.html}. 
-If you are unsure about how to cite online sources, please see \citet{UNSWWebsite}. 
-\footnote{Specifying an online resource like \url{https://developer.android.com/studio}
-in a footnote sometimes makes more sense than including it as a formal reference.}
-
-\subsection{Plagiarism warning}
-
-\begin{highlight_title}{WARNING}
-    
-    If you include material from other sources without full and correct attribution, you are commiting plagiarism. The penalties for plagiarism are severe.
-    Quote any included text and cite it correctly. Cite all images, figures, etc. clearly in the caption of the figure.
-\end{highlight_title}
-
-\subsection{Quoting text}
-
-If you are quoting a long passage, use a \texttt{quote} environment:
-
-\begin{quote}
-     If you scribble your thoughts any which way, your readers will surely feel that you care nothing about them. They will mark you down as an egomaniac or a chowderhead -or, worse, they will stop reading you. The most damning revelation you can make about yourself is that you do not know what is interesting and what is not.
-\end{quote} \citep{Von80}
-
-If you are quoting inline, like Simon Peyton-Jones' following remark, use quotation marks ``Conveying the intuition is primary, not
-secondary'' \citep{Pey17}.
-
+Abbreviation use and references to other RFCs provide evidence for examining topic mix and reliance on earlier documents. The analysis will measure mentions of abbreviations in the RFC Editor's list. These are potential explanatory factors, not direct measures of influence or causation.
 
 %==================================================================================================================================
 \chapter{Background}
-What did other people do, and how is it relevant to what you want to do?
-\section{Guidance}
-\begin{itemize}    
-    \item
-      Don't give a laundry list of references.
-    \item
-      Tie everything you say to your problem.
-    \item
-      Present an argument.
-    \item Think critically; weigh up the contribution of the background and put it in context.    
-    \item
-      \textbf{Don't write a tutorial}; provide background and cite
-      references for further information.
-      
-\end{itemize}
+McQuistin et al. examine RFC publication, authorship, geographic representation, and email activity, and model real-world RFC deployment using a labelled sample from a corpus of 8,711 RFCs published through 2020 \citep{McQuistin2021}. Their data finds many statistics including time to publish an RFC in days through the years, RFCs updated in each year, authorship by country and company, and email activity. They report changes like the fact that RFCs that build on existing work and have clear requirements are more likely to be deployed and author demographics and affiliation diversity show no statistically significant impact on deployment. Their deployment model is based on a much smaller labelled sample; 251 RFCs had deployment labels and the expanded feature analysis was limited to 155 RFCs for which the additional data was available. This limits how broadly those model findings can be generalised.
+
+These studies provide useful insights however they only go up to 2020 and rely on a relatively small sample. This motivates revisiting these trends and examining how they have changed over the years.
 
 %==================================================================================================================================
 \chapter{Analysis/Requirements}
-What is the problem that you want to solve, and how did you arrive at it?
-\section{Guidance}
-Make it clear how you derived the constrained form of your problem via a clear and logical process. 
+Previous studies use different data sources and definitions, so the first requirement was to define a scope that could be reproduced from public metadata. The analysis therefore uses the RFC index as its source and includes only RFCs in the IETF stream. This excludes IRTF, IAB, independent, and experimental streams from the main comparison rather than combining documents with different publication processes. The available snapshot covers 1990--2026.
 
-The analysis chapter explains the process by which you arrive at a concrete design. In software 
-engineering projects, this will include a statement of the requirement capture process and the
-derived requirements.
-
-In research projects, it will involve developing a design drawing on
-the work established in the background, and stating how the space of possible projects was
-sensibly narrowed down to what you have done.
+The project requirements were:
+\begin{enumerate}
+    \item calculate the annual number of IETF-stream RFCs;
+    \item measure document length using the page count recorded in the index;
+    \item measure authorship using the number of authors listed for each RFC;
+    \item report the mean and interquartile range so that the average and the spread of typical RFCs can be compared;
+    \item produce a reproducible summary table and visualisation from the source metadata.
+\end{enumerate}
 
 %==================================================================================================================================
 \chapter{Design}
-How is this problem to be approached, without reference to specific implementation details? 
-\section{Guidance}
-Design should cover the abstract design in such a way that someone else might be able to do what you did, 
-but with a different language or library or tool. This might include overall system architecture diagrams,
-user interface designs (wireframes/personas/etc.), protocol specifications, algorithms, data set design choices,
-among others. Specific languages, technical choices, libraries and such like should not usually appear in the design. These are implementation details.
+Each RFC is represented by its publication year, stream, page count, and number of listed authors. Records are first filtered to the IETF stream. For each year, the analysis aggregates the number of RFCs and calculates the mean, first quartile (Q1), and third quartile (Q3) of page count and author count. The Q1--Q3 band contains the middle half of the RFCs for that year; the mean is shown separately as the arithmetic average. Quartiles are estimated using linear interpolation, so a quartile may be fractional even when the underlying measure is an integer. The total number of author slots is also retained in the summary table.
 
+\begin{highlight}
+The analysis will compare changes across years and examine whether they coincide with changes in topic, publication status, RFC references, author affiliations, and the concentration of RFCs across topics and working groups. This can identify patterns that may help explain the trends, but cannot establish that one variable caused another to change. The mean is sensitive to unusually long documents or large author lists, while the interquartile range shows the spread of the central half of the observations. The output consists of a yearly CSV summary and a three-panel figure showing publication count, page count, and authorship.
+\end{highlight}
 
 %==================================================================================================================================
 \chapter{Implementation}
-What did you do to implement this idea, and what technical achievements did you make?
-\section{Guidance}
-You can't talk about everything. Cover the high level first, then cover important, relevant or impressive details.
+The analysis was carried out using a Python data-processing script. It reads the RFC index, selects RFCs in the IETF stream, and groups the records by publication year. For each year, it calculates the number of RFCs and the mean and interquartile range of page counts and listed authors. These summaries are used to produce the tables and figure presented in the findings.
 
-\section{General guidance for technical writing}
+An additional analysis combines the RFC index with the RFC Editor's errata feed \citep{RFCEditorErrata} to summarise errata, keyword metadata, and working-group labels by RFC and publication year.
 
-These points apply to the whole dissertation, not just this chapter.
+%==============================================================================
+\chapter{Findings}
+\section{Publication volume}
+The annual number of IETF-stream RFCs increased from 12 in 1990 to a peak of 434 in 2006. Publication volume then fluctuated at lower levels rather than increasing every year.
 
-\subsection{Figures}
-\emph{Always} refer to figures included, like Figure \ref{fig:relu}, in the body of the text. Include full, explanatory captions and make sure the figures look good on the page.
-You may include multiple figures in one float, as in Figure \ref{fig:synthetic}, using \texttt{subcaption}, which is enabled in the template.
+\section{Length and authorship}
+Figure \ref{fig:rfc-trends} summarises the three measures. Comparing 1990 with the last complete year in this snapshot (2025), mean RFC length fell from 53.0 to 26.4 pages. The Q1--Q3 range also shifted down, from 21--55.75 pages to 12--30.75 pages. Over the same period, mean listed authors per RFC rose from 2.17 to 3.18, and the Q1--Q3 range shifted from 1--2.5 authors to 2--5 authors. These measures indicate a broad shift toward shorter RFCs and larger listed author teams. The 2026 values are shown in the figure but are provisional because the snapshot may not include a complete publication year.
 
+\subsection{Unusually long and highly authored RFCs in 1990}
+Two RFCs stand out as much longer than the others published in 1990. RFC 1147, \emph{FYI on a Network Management Tool Catalog}, is a 177-page guide to tools for monitoring and debugging TCP/IP networks \citep{RFC1147}. RFC 1190, \emph{Experimental Internet Stream Protocol: Version 2 (ST-II)}, is a 148-page specification for an experimental protocol that aimed to provide guaranteed service for network streams \citep{RFC1190}. ST-II was assigned IP protocol number 5, which is sometimes associated with the informal name ``IPv5''. Its detailed specification helps explain its length. Both RFCs are included in the results and raise the 1990 mean to 53 pages; without them it would be 31.1 pages, following the trend expected.
 
-% Figures are important. Use them well.
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.5\linewidth]{images/relu.pdf}    
-
-    \caption{In figure captions, explain what the reader is looking at: ``A schematic of the rectifying linear unit, where $a$ is the output amplitude,
-    $d$ is a configurable dead-zone, and $Z_j$ is the input signal'', as well as why the reader is looking at this: 
-    ``It is notable that there is no activation \emph{at all} below 0, which explains our initial results.'' 
-    \textbf{Use vector image formats (.pdf) where possible}. Size figures appropriately, and do not make them over-large or too small to read.
-    }
-
-    % use the notation fig:name to cross reference a figure
-    \label{fig:relu} 
-\end{figure}
-
-
-\begin{figure}[htb] 
-    \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{images/synthetic.png}
-        \caption{Synthetic image, black on white.}
-        \label{fig:syn1}
-    \end{subfigure}
-    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
-      %(or a blank line to force the subfigure onto a new line)
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{images/synthetic_2.png}
-        \caption{Synthetic image, white on black.}
-        \label{fig:syn2}
-    \end{subfigure}
-    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
-    %(or a blank line to force the subfigure onto a new line)    
-    \caption{Synthetic test images for edge detection algorithms. \subref{fig:syn1} shows various gray levels that require an adaptive algorithm. \subref{fig:syn2}
-    shows more challenging edge detection tests that have crossing lines. Fusing these into full segments typically requires algorithms like the Hough transform.
-    This is an example of using subfigures, with \texttt{subref}s in the caption.
-    }\label{fig:synthetic}
-\end{figure}
-
-\clearpage
-
-\subsection{Equations}
-
-Equations should be typeset correctly and precisely. Make sure you get parenthesis sizing correct, and punctuate equations correctly 
-(the comma is important and goes \textit{inside} the equation block). Explain any symbols used clearly if not defined earlier. 
-
-For example, we might define:
-\begin{equation}
-    \hat{f}(\xi) = \frac{1}{2}\left[ \int_{-\infty}^{\infty} f(x) e^{2\pi i x \xi} \right],
-\end{equation}    
-where $\hat{f}(\xi)$ is the Fourier transform of the time domain signal $f(x)$.
-
-\subsection{Algorithms}
-Algorithms can be set using \texttt{algorithm2e}, as in Algorithm \ref{alg:metropolis}.
-
-% NOTE: line ends are denoted by \; in algorithm2e
-\begin{algorithm}
-    \DontPrintSemicolon
-    \KwData{$f_X(x)$, a probability density function returing the density at $x$.\; $\sigma$ a standard deviation specifying the spread of the proposal distribution.\;
-    $x_0$, an initial starting condition.}
-    \KwResult{$s=[x_1, x_2, \dots, x_n]$, $n$ samples approximately drawn from a distribution with PDF $f_X(x)$.}
-    \Begin{
-        $s \longleftarrow []$\;
-        $p \longleftarrow f_X(x)$\;
-        $i \longleftarrow 0$\;
-        \While{$i < n$}
-        {
-            $x^\prime \longleftarrow \mathcal{N}(x, \sigma^2)$\;
-            $p^\prime \longleftarrow f_X(x^\prime)$\;
-            $a \longleftarrow \frac{p^\prime}{p}$\;
-            $r \longleftarrow U(0,1)$\;
-            \If{$r<a$}
-            {
-                $x \longleftarrow x^\prime$\;
-                $p \longleftarrow f_X(x)$\;
-                $i \longleftarrow i+1$\;
-                append $x$ to $s$\;
-            }
-        }
-    }
-    
-\caption{The Metropolis-Hastings MCMC algorithm for drawing samples from arbitrary probability distributions, 
-specialised for normal proposal distributions $q(x^\prime|x) = \mathcal{N}(x, \sigma^2)$. The symmetry of the normal distribution means the acceptance rule takes the simplified form.}\label{alg:metropolis}
-\end{algorithm}
-
-\subsection{Tables}
-
-If you need to include tables, like Table \ref{tab:operators}, use a tool like https://www.tablesgenerator.com/ to generate the table as it is
-extremely tedious otherwise. 
-
-\begin{table}[]
-    \caption{The standard table of operators in Python, along with their functional equivalents from the \texttt{operator} package. Note that table
-    captions go above the table, not below. Do not add additional rules/lines to tables. }\label{tab:operators}
-    %\tt 
-    \rowcolors{2}{}{gray!3}
-    \begin{tabular}{@{}lll@{}}
-    %\toprule
-    \textbf{Operation}    & \textbf{Syntax}                & \textbf{Function}                            \\ %\midrule % optional rule for header
-    Addition              & \texttt{a + b}                          & \texttt{add(a, b)}                                    \\
-    Concatenation         & \texttt{seq1 + seq2}                    & \texttt{concat(seq1, seq2)}                           \\
-    Containment Test      & \texttt{obj in seq}                     & \texttt{contains(seq, obj)}                           \\
-    Division              & \texttt{a / b}                          & \texttt{div(a, b) }  \\
-    Division              & \texttt{a / b}                          & \texttt{truediv(a, b) } \\
-    Division              & \texttt{a // b}                         & \texttt{floordiv(a, b)}                               \\
-    Bitwise And           & \texttt{a \& b}                         & \texttt{and\_(a, b)}                                  \\
-    Bitwise Exclusive Or  & \texttt{a \textasciicircum b}           & \texttt{xor(a, b)}                                    \\
-    Bitwise Inversion     & \texttt{$\sim$a}                        & \texttt{invert(a)}                                    \\
-    Bitwise Or            & \texttt{a | b}                          & \texttt{or\_(a, b)}                                   \\
-    Exponentiation        & \texttt{a ** b}                         & \texttt{pow(a, b)}                                    \\
-    Identity              & \texttt{a is b}                         & \texttt{is\_(a, b)}                                   \\
-    Identity              & \texttt{a is not b}                     & \texttt{is\_not(a, b)}                                \\
-    Indexed Assignment    & \texttt{obj{[}k{]} = v}                 & \texttt{setitem(obj, k, v)}                           \\
-    Indexed Deletion      & \texttt{del obj{[}k{]}}                 & \texttt{delitem(obj, k)}                              \\
-    Indexing              & \texttt{obj{[}k{]}}                     & \texttt{getitem(obj, k)}                              \\
-    Left Shift            & \texttt{a \textless{}\textless b}       & \texttt{lshift(a, b)}                                 \\
-    Modulo                & \texttt{a \% b}                         & \texttt{mod(a, b)}                                    \\
-    Multiplication        & \texttt{a * b}                          & \texttt{mul(a, b)}                                    \\
-    Negation (Arithmetic) & \texttt{- a}                            & \texttt{neg(a)}                                       \\
-    Negation (Logical)    & \texttt{not a}                          & \texttt{not\_(a)}                                     \\
-    Positive              & \texttt{+ a}                            & \texttt{pos(a)}                                       \\
-    Right Shift           & \texttt{a \textgreater{}\textgreater b} & \texttt{rshift(a, b)}                                 \\
-    Sequence Repetition   & \texttt{seq * i}                        & \texttt{repeat(seq, i)}                               \\
-    Slice Assignment      & \texttt{seq{[}i:j{]} = values}          & \texttt{setitem(seq, slice(i, j), values)}            \\
-    Slice Deletion        & \texttt{del seq{[}i:j{]}}               & \texttt{delitem(seq, slice(i, j))}                    \\
-    Slicing               & \texttt{seq{[}i:j{]}}                   & \texttt{getitem(seq, slice(i, j))}                    \\
-    String Formatting     & \texttt{s \% obj}                       & \texttt{mod(s, obj)}                                  \\
-    Subtraction           & \texttt{a - b}                          & \texttt{sub(a, b)}                                    \\
-    Truth Test            & \texttt{obj}                            & \texttt{truth(obj)}                                   \\
-    Ordering              & \texttt{a \textless b}                  & \texttt{lt(a, b)}                                     \\
-    Ordering              & \texttt{a \textless{}= b}               & \texttt{le(a, b)}                                     \\
-    % \bottomrule
-    \end{tabular}
-    \end{table}
-\subsection{Code}
-
-Avoid putting large blocks of code in the report (more than a page in one block, for example). Use syntax highlighting if possible, as in Listing \ref{lst:callahan}.
-
-\begin{lstlisting}[language=python, float, caption={The algorithm for packing the $3\times 3$ outer-totalistic binary CA successor rule into a 
-    $16\times 16\times 16\times 16$ 4 bit lookup table, running an equivalent, notionally 16-state $2\times 2$ CA.}, label=lst:callahan]
-    def create_callahan_table(rule="b3s23"):
-        """Generate the lookup table for the cells."""        
-        s_table = np.zeros((16, 16, 16, 16), dtype=np.uint8)
-        birth, survive = parse_rule(rule)
-
-        # generate all 16 bit strings
-        for iv in range(65536):
-            bv = [(iv >> z) & 1 for z in range(16)]
-            a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p = bv
-
-            # compute next state of the inner 2x2
-            nw = apply_rule(f, a, b, c, e, g, i, j, k)
-            ne = apply_rule(g, b, c, d, f, h, j, k, l)
-            sw = apply_rule(j, e, f, g, i, k, m, n, o)
-            se = apply_rule(k, f, g, h, j, l, n, o, p)
-
-            # compute the index of this 4x4
-            nw_code = a | (b << 1) | (e << 2) | (f << 3)
-            ne_code = c | (d << 1) | (g << 2) | (h << 3)
-            sw_code = i | (j << 1) | (m << 2) | (n << 3)
-            se_code = k | (l << 1) | (o << 2) | (p << 3)
-
-            # compute the state for the 2x2
-            next_code = nw | (ne << 1) | (sw << 2) | (se << 3)
-
-            # get the 4x4 index, and write into the table
-            s_table[nw_code, ne_code, sw_code, se_code] = next_code
-
-        return s_table
-
-\end{lstlisting}
-
-%==================================================================================================================================
-\chapter{Evaluation} 
-How good is your solution? How well did you solve the general problem, and what evidence do you have to support that?
-
-\section{Guidance}
-\begin{itemize}
-    \item
-        Ask specific questions that address the general problem.
-    \item
-        Answer them with precise evidence (graphs, numbers, statistical
-        analysis, qualitative analysis).
-    \item
-        Be fair and be scientific.
-    \item
-        The key thing is to show that you know how to evaluate your work, not
-        that your work is the most amazing product ever.
-\end{itemize}
-
-\section{Evidence}
-Make sure you present your evidence well. Use appropriate visualisations, 
-reporting techniques and statistical analysis, as appropriate. The point is not
-to dump all the data you have but to present an argument well supported by evidence gathered.
-
-If you use numerical evidence, specify reasonable numbers of significant digits; don't state ``18.41141\% of users were successful'' if you only had 20 users. If you average \textit{anything}, present both a measure of central tendency (e.g. mean, median) \textit{and} a measure of spread (e.g. standard deviation, min/max, interquartile range).
-
-You can use \texttt{siunitx} to define units, space numbers neatly, and set the precision for the whole LaTeX document. 
-
-% setup siunitx to have two decimal places
-\sisetup{
-	round-mode = places,
-	round-precision = 2
-}
-
-For example, these numbers will appear with two decimal places: \num{3.141592}, \num{2.71828}, and this one will appear with reasonable spacing \num{1000000}.
-
-
-
-If you use statistical procedures, make sure you understand the process you are using,
-and that you check the required assumptions hold in your case. 
-
-If you visualise, follow the basic rules, as illustrated in Figure \ref{fig:boxplot}:
-\begin{itemize}
-\item Label everything correctly (axis, title, units).
-\item Caption thoroughly.
-\item Reference in text.
-\item \textbf{Include appropriate display of uncertainty (e.g. error bars, Box plot)}
-\item Minimize clutter.
-\end{itemize}
-
-See the file \texttt{guide\_to\_visualising.pdf} for further information and guidance.
+Two RFCs also stand out for their number of listed authors. RFC 1164, on applying BGP to routing between autonomous systems, lists five authors \citep{RFC1164}. RFC 1175, a bibliography of resources for people learning about internetworking, lists six \citep{RFC1175}. Both are included in the results and raise the 1990 mean to 2.17 authors per RFC; without them it would be 1.5. Current RFC style guidance generally limits the first-page list to five authors or editors; requests to list more are considered by the stream-approving body \citep{RFC7322}. RFC 1175 predates this guidance, so its six listed authors should be understood in its historical context. These examples help explain the 1990 averages, but do not by themselves explain the longer-term trends.
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=1.0\linewidth]{images/boxplot_finger_distance.pdf}    
-
-    \caption{Average number of fingers detected by the touch sensor at different heights above the surface, averaged over all gestures. Dashed lines indicate
-    the true number of fingers present. The Box plots include bootstrapped uncertainty notches for the median. It is clear that the device is biased toward 
-    undercounting fingers, particularly at higher $z$ distances.
-    }
-
-    % use the notation fig:name to cross reference a figure
-    \label{fig:boxplot} 
+    \includegraphics[width=\textwidth]{images/rfc_trends.png}
+    \caption{Annual IETF-stream RFC publication count, page count, and listed authorship from 1990 to 2026. For page count and author count, the solid line shows the annual mean and the shaded band shows Q1--Q3 (the interquartile range). The final year's observations may be incomplete.}
+    \label{fig:rfc-trends}
 \end{figure}
 
+\section{Exploratory indicators of engagement}
+Of the 7,249 IETF-stream RFCs in the index, 2,241 (30.9\%) have at least one entry in the RFC Editor's errata feed. Errata are reports of possible corrections, not general comments or a direct measure of how much an RFC is valued. Older RFCs have had more time to accumulate reports, so lifetime totals are not directly comparable.
 
-%==================================================================================================================================
-\chapter{Conclusion}    
-Summarise the whole project for a lazy reader who didn't read the rest (e.g. a prize-awarding committee). This chapter should be short in most dissertations; maybe one to three pages.
-\section{Guidance}
-\begin{itemize}
-    \item
-        Summarise briefly and fairly.
-    \item
-        You should be addressing the general problem you introduced in the
-        Introduction.        
-    \item
-        Include summary of concrete results (``the new compiler ran 2x
-        faster'')
-    \item
-        Indicate what future work could be done, but remember: \textbf{you
-        won't get credit for things you haven't done}.
-\end{itemize}
+Comparing RFCs with a complete five-year reporting period, 28.6\% of RFCs published in 2001--2009 and 25.2\% published in 2010--2019 had at least one erratum in that period. This does not suggest a simple increase in reported corrections over time, though reporting practices and the types of RFCs published may differ between periods. Longer RFCs were somewhat more likely to have errata, while the number of listed authors showed little relationship to errata. These patterns do not establish that length causes errors or that team size affects quality.
 
-\section{Summary}
-Summarise what you did; answer the general questions you asked in the introduction. What did you achieve? Briefly describe what was built and summarise the evaluation results.
+The working-group labels also suggest that RFCs have been associated with a wider range of groups over time: an average of about 36 distinct group labels appeared each year in the 1990s, compared with about 82 in the 2010s. This points to a broader spread of RFCs across the labels in the index, but does not show how many people participated or how specialised each group was. Indexed keywords vary by decade, with ``protocol'' and ``management'' common in the 1990s, ``SIP'' and ``IPv6'' in the 2010s, and ``security'', ``DNS'', and ``automation'' in 2020--2026. Keyword coverage is incomplete and varies between periods, so these examples should be treated as an indication of topics, not a complete account of how RFC subject matter changed.
 
-\section{Reflection}
-Discuss what went well and what didn't and how you would do things differently if you did this project again.
+% \begin{highlight}
+% As a rough check for acronym use, the analysis counted distinct uppercase tokens in each RFC title and abstract. The average rose from 2.56 tokens per RFC in the 1990s to 3.18 in the 2000s, then fell slightly to 3.13 in the 2010s and 3.05 in 2020--2026. This suggests a modest increase from the 1990s, but the measure cannot tell acronyms from other uppercase terms and does not count their use in the full RFC text. It also does not check the RFC Editor's abbreviations list, so it should be read as an exploratory indicator rather than a count of approved abbreviations. \break
 
-\section{Future work}
-Discuss what you would do if you could take this further -- where would the interesting directions to go next be? (e.g. you got another year to work on it, or you started a company to work on this, or you pursued a PhD on this topic)
+% The index records ``updates'' and ``obsoletes'' relationships, but these are not general citation counts. Citation counts are not estimated in the current results because the analysis does not yet include extracted references from RFC text. Taken together, these indicators describe recorded corrections and metadata patterns; they cannot establish whether an RFC was more cared about, adopted, or successful.
+% \end{highlight}
+
+\section{Interpretation and limitations}
+The simultaneous increase in listed authors and decrease in page count is notable, but the time series cannot establish that one caused the other. One possible interpretation is that technical work has become more specialised and collaborative, with focused documents produced by larger groups; this remains a hypothesis, since this analysis does not measure document topics, team roles, or the relationship between author count and length within each year. Another possible influence is a change in the mix of RFCs: the series contains documents with different purposes and statuses, which may have different typical lengths and authorship patterns \cite{IETFProcessRFCs}. Page count is also a measure of document size, not technical complexity or quality, and can be affected by document formatting. Listed authors are a proxy for credited authorship rather than a complete measure of contribution. Further work could classify RFCs by type/topic and test whether the association between author count and length persists within those groups. The analysis describes publication trends; it cannot establish whether an RFC was deployed, adopted, or successful in practice.
+
+%==============================================================================
+\chapter{Conclusion}
 
 %==================================================================================================================================
 %
@@ -525,28 +204,6 @@ Discuss what you would do if you could take this further -- where would the inte
 \begin{appendices}
 
 \chapter{Appendices}
-
-Use separate appendix chapters for groups of ancillary material that support your dissertation. 
-Typical inclusions in the appendices are:
-
-\begin{itemize}
-\item
-  Copies of ethics approvals (you must include these if you needed to get them)
-\item
-  Copies of questionnaires etc. used to gather data from subjects. Don't include
-  voluminous data logs; instead submit these electronically alongside your source code.
-\item
-  Extensive tables or figures that are too bulky to fit in the main body of
-  the report, particularly ones that are repetitive and summarised in the body.
-\item Outline of the source code (e.g. directory structure), 
-    or other architecture documentation like class diagrams.
-\item User manuals, and any guides to starting/running the software. 
-Your equivalent of \texttt{readme.md} should be included.
-
-\end{itemize}
-
-\textbf{Don't include your source code in the appendices}. It will be
-submitted separately.
 
 
 
